@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        class Apple{
+            constructor(weight){
+                this.weight = weight;
+            }
+            decrease(){
+                if(this.weight>0){
+                    this.weight--;
+                }
+            }
+            isEmpty(){
+                return this.weight===0;
+            }
+            getWeight(){
+                return this.weight;
+            }
+        }
+        class Human{
+            constructor(name,gender,weight){
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+            isMale(){
+                return this.gender==="male";
+            }
+            setGender(gender){
+                return this.gender= gender;
+            }
+            checkApple(apple){
+                return apple.isEmpty() != true;
+            }
+            eat(apple){
+                if(this.checkApple(apple)){
+                    apple.decrease();
+                    this.weight++;
+                }   
+            }
+            say(message){
+                document.write(this.name+" : "+message+"<br>");
+            }
+            getName(){
+                return this.name;
+            }
+            setName(name){
+                this.name = name;
+            }
+            getWeight(){
+                return this.weight;
+            }
+            setWeight(weight){
+                this.weight = weight;
+            }
+
+        }
+        let apple1 = new Apple(10);
+        let adam = new Human("Adam","male",70);
+        let eva = new Human("Eva","female",50);
+        adam.say("trong vườn địa đàng có một cây táo ra những quả táo chín mọng ");
+        eva.say("sao chúng ta k nếm thử nhỉ");
+        adam.say('đi thôi!');
+        adam.say('để ta trèo lên');
+        eva.say('vậy để ta bắt lấy');
+        while(apple1.isEmpty()!== true){
+            eva.say('cắn 1 miếng');
+            eva.eat(apple1);
+            document.write("trọng lượng quả táo: "+apple1.getWeight()+"<br>");
+            eva.say("trọng lượng của ta: "+eva.getWeight());
+            adam.say('cắn 1 miếng');
+            adam.eat(apple1);
+            document.write("trọng lượng quả táo: "+apple1.getWeight()+"<br>");
+            adam.say("trọng lượng của ta: "+adam.getWeight());
+        }
+    </script>
+</body>
+</html>
